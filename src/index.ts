@@ -73,27 +73,45 @@
 
 
 
-type Gender = "男" | "女"
-type User = {
-  name:string,
-  age:number,
-  gender: Gender
+// type Gender = "男" | "女"
+// type User = {
+//   name:string,
+//   age:number,
+//   gender: Gender
+// }
+
+// let u: User
+
+// u = {
+//   name: "asd",
+//   gender: "男",
+//   age: 45
+// }
+
+// function getUsers(g: Gender):User[] {
+//   return [];
+// }
+
+
+// function combine(a:number, b:number):number;
+// function combine(a:string, b:string):string;
+// function combine(a:number | string, b:number | string): number | string {
+//   if (typeof a === "number" && typeof b === "number") {
+//     return a * b;
+//   } else if (typeof a === "string" && typeof b === "string") {
+//     return a + b;
+//   }
+//   throw new Error("a和b必须是相同的类型");
+// }
+// const result = combine(3, 3);
+
+
+
+function sum(a: number, b: number, c: number = 0) {
+ return a = b + c;
 }
-
-let u: User
-
-u = {
-  name: "asd",
-  gender: "男",
-  age: 45
-}
-
-function getUsers(g: Gender):User[] {
-  return [];
-}
-
-
-
+sum(3, 4);
+sum(3, 4, 6);
 
 
 
