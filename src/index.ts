@@ -1,8 +1,10 @@
-type Gender = "男" | "女";
-let gender: Gender;
-gender = "男";
-gender = "女";
-
-function searchUsers(g: Gender) {
-
+enum Level {
+  level1,
+  level2,
+  level3
 }
+
+let l: Level = Level.level1
+l = Level.level2;
+console.log(l);
+function getUsers(lev: Level) {}
