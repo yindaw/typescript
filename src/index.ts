@@ -1,10 +1,4 @@
-// import sayHello, {sum, name} from "./myModule"
-// import fs from "fs";
-// fs.readFileSync("/");
-// console.log(name);
-// console.log(sum(3, 4));
-// sayHello();
+import { createDeck, printDeck } from "./funcs";
 
-
-
-import myModule = require("./myModule");
+const deck = createDeck();
+printDeck(deck);
