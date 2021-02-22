@@ -100,7 +100,7 @@ let u: User = {
   arr: ["sda", "sdaasdasd"]
 }
 
-u.arr.push("")
+
 
 
 // const arr: readonly number[] = [3,4,5];
