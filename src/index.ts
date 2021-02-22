@@ -81,3 +81,30 @@
 //   T1: "sfafa", 
 //   T3: true
 // }
+
+
+
+
+
+interface User {
+  readonly id: string
+  name: string
+  age: number,
+  readonly arr: readonly string[]
+}
+
+let u: User = {
+  id: "12312",
+  name: "adsad",
+  age: 33,
+  arr: ["sda", "sdaasdasd"]
+}
+
+u.arr.push("")
+
+
+// const arr: readonly number[] = [3,4,5];
+
+// const arr: ReadonlyArray<number> = [1,5,6];
+
+
