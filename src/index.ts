@@ -1,19 +1,15 @@
-import { Deck } from "./deck";
-const deck = new Deck();
-deck.shuffle();
-console.log("=======洗牌之后=======");
-deck.print();
-const result = deck.publish();
-console.log("=======发牌之后=======");
+function take<T>(arr:T[], n: number):T[] {
+  if (n >= arr.length) {
+    return arr;
+  }
+  const newArr:T[] = [];
+  for (let i = 0; i < n; i++) {
+    newArr.push(arr[i])
+  }
+  return newArr;
+}
 
-console.log("=======玩家1=======");
-result.player1.print();
+const result = take<number>([3, 4, 5, 2, 1, 33], 2) 
 
-console.log("=======玩家2=======");
-result.player2.print();
-
-console.log("=======玩家3=======");
-result.player3.print();
-
-console.log("=======桌面=======");
-result.left.print();
+// const newArr = take([3, 4, 5, 2, 1, 33], 2);
+// console.log(newArr);
