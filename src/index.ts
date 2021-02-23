@@ -1,57 +1,63 @@
-abstract class Chess {
-  x: number = 0;
-  y: number = 0;
-  abstract readonly name: string;
-  move(targetX: number, targetY: number): boolean {
-    console.log("1. 边界判断");
-    console.log("2. 目标位置是否有己方棋子");
-    if (this.rule(targetX, targetY)) {
-      this.x = targetX;
-      this.y = targetY;
-      console.log(`${this.name}移动成功`);
-      return true;
+// class User {
+//   static users:User[] = [];
+//   constructor(
+//     public loginId: string,
+//     public loginPwd: string,
+//     public name: string,
+//     public age: number
+//   ) {   
+//     User.users.push(this);
+//   }
+
+//   sayHello() {
+//     console.log(`大家好，我叫${this.name}, 今年${this.age}岁, 我的账号是${this.loginId}`);
+//   }
+
+//   static login(loginId: string, loginPwd: string): User | undefined {
+//     return this.users.find((u) => u.loginId === loginId && u.loginPwd === loginPwd)
+//   }
+// }
+
+
+// new User("u1", "123", "王富贵", 11);
+// new User("u2", "123", "坤坤", 18);
+// new User("u3", "123", "旺财", 22);
+
+// const result = User.login("u1", "123");
+// if (result) {
+//   result.sayHello();
+// }
+
+
+
+
+
+
+
+
+class Board {
+  width: number = 500;
+  height: number = 700;
+
+  init() {
+    console.log("初始化棋盘");
+  }
+
+  private constructor() {}
+
+  private static _board;
+  static createBoard(): Board {
+    if (this._board) {
+      return this._board;
     }
-    return false;
-  };
-  protected abstract rule(targetX: number, targetY: number): boolean;
-}
-
-
-class Horse extends Chess {
-  protected rule(targetX: number, targetY: number): boolean {
-  return true
-  }
-  readonly name: string = "马";
-}
-
-
-
-class Cannon extends Chess {
-  protected rule(targetX: number, targetY: number): boolean {
-    return false;
-  }
-  readonly name: string;
-  constructor() {
-    super();
-    this.name = "炮";
+    this._board = new Board();
+    return this._board;
   }
 }
-
-
-class Soldier extends Chess {
-  protected rule(targetX: number, targetY: number): boolean {
-    return true;
-  }
-  get name () {
-    return "兵";
-  };
-} 
+const b1 = Board.createBoard;
+const b2 = Board.createBoard;
+console.log(b1 === b2);
 
 
 
-class king extends Chess {
-  name: string = "将";
-  protected rule(targetX: number, targetY: number): boolean {
-    throw new Error("Method not implemented.");
-  }
-}
+
