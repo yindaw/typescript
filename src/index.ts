@@ -1,33 +1,57 @@
-export class Tank {
-  protected name: string = "坦克"
-  sayHello() {
-    console.log(`我是一个${this.name}`);
+abstract class Chess {
+  x: number = 0;
+  y: number = 0;
+  abstract readonly name: string;
+  move(targetX: number, targetY: number): boolean {
+    console.log("1. 边界判断");
+    console.log("2. 目标位置是否有己方棋子");
+    if (this.rule(targetX, targetY)) {
+      this.x = targetX;
+      this.y = targetY;
+      console.log(`${this.name}移动成功`);
+      return true;
+    }
+    return false;
+  };
+  protected abstract rule(targetX: number, targetY: number): boolean;
+}
+
+
+class Horse extends Chess {
+  protected rule(targetX: number, targetY: number): boolean {
+  return true
+  }
+  readonly name: string = "马";
+}
+
+
+
+class Cannon extends Chess {
+  protected rule(targetX: number, targetY: number): boolean {
+    return false;
+  }
+  readonly name: string;
+  constructor() {
+    super();
+    this.name = "炮";
   }
 }
 
-export class PlayerTank extends Tank {
-  name: string = "玩家坦克"
-  life: number = 5;
 
-  sayHello() {
-    console.log("啦啦啦");
+class Soldier extends Chess {
+  protected rule(targetX: number, targetY: number): boolean {
+    return true;
   }
+  get name () {
+    return "兵";
+  };
+} 
 
-  test() {
-    super.sayHello();
-    this.sayHello();
+
+
+class king extends Chess {
+  name: string = "将";
+  protected rule(targetX: number, targetY: number): boolean {
+    throw new Error("Method not implemented.");
   }
-
-
 }
-
-export class EnemyTank extends Tank {
-  name: string = "敌方坦克"
-  health: number = 1;
-}
-
-export class BossTank extends EnemyTank {
-
-}
-
-const t = new BossTank();
