@@ -1,26 +1,20 @@
-function enumerable(target: any, key: string, descriptor: PropertyDescriptor) {
-  //console.log(target, key, descriptor);
-  descriptor.enumerable = true;
+import { classDescriptor, printObj, propDescriptor } from "./Descriptor";
+
+@classDescriptor("文章")
+class Article {
+
+  @propDescriptor("标题")
+  title: string
+
+  @propDescriptor("内容")
+  content: string
+
+  @propDescriptor("日期")
+  date: Date
 }
 
-
-
-function useless(target: any, key: string, descriptor: PropertyDescriptor) {
-  descriptor.value = function() {
-    console.log(key + "方法已过期");
-  }
-}
-class A {
-  @enumerable
-  @useless
-  method1() {
-    console.log("method1");
-  }
-
-  @enumerable
-  method2() {
-    
-  }
-}
-const a = new A();
-a.method1();
+const ar = new Article();
+ar.title = "xxxx";
+ar.content = "adasdadad";
+ar.date = new Date();
+printObj(ar);
