@@ -12,7 +12,8 @@
     "moduleResolution": "node",
     // "strictPropertyInitialization": true,
     "noImplicitAny": true,
-    "noImplicitThis": true
+    "noImplicitThis": true,
+    "experimentalDecorators": true
   },
   "include": ["./src"]
 }
