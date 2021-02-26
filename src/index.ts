@@ -1,21 +1,26 @@
-type constructor = new (...args: any[]) => object;
-function d1() {
-  console.log("d1");
-  return function (target: constructor) {
-    console.log("d1 decorator");
-  }
+function enumerable(target: any, key: string, descriptor: PropertyDescriptor) {
+  //console.log(target, key, descriptor);
+  descriptor.enumerable = true;
 }
 
-function d2() {
-  console.log("d2");
-  return function (target: constructor) {
-    console.log("d2 decorator");
+
+
+function useless(target: any, key: string, descriptor: PropertyDescriptor) {
+  descriptor.value = function() {
+    console.log(key + "方法已过期");
   }
 }
-
-@d1()
-@d2()
-
 class A {
-  prop1: string
+  @enumerable
+  @useless
+  method1() {
+    console.log("method1");
+  }
+
+  @enumerable
+  method2() {
+    
+  }
 }
+const a = new A();
+a.method1();
