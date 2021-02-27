@@ -1,17 +1,32 @@
-class RegUser {
-  loginId: string
-  loginPed: string
-  age: number
-  pid: string
-  email: string
+import { type } from "os"
 
-  /**
- * 将用户保存到数据库
- */
-
- save () {
-  //验证处理
-  //通过后保存数据库
-}
+interface User {
+  loginid: string
+  loginpwd: string
 }
 
+interface Artical {
+  title: string
+  publishDate: Date
+}
+
+
+
+//将User的所有属性值类型变成字符串，得到一个新的类型
+type String<T> = {
+  [p in keyof T]: string
+}
+
+
+type Readonly<T> = {
+  readonly [p in keyof T]: T[p]
+}
+
+type Partial<T> = {
+  [p in keyof T]?: T[p]
+}
+
+const u:Readonly<User> = {
+  loginid: "sdsadsa",
+  loginpwd: "sdadas", 
+}
