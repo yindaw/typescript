@@ -1,6 +1,7 @@
 import "reflect-metadata";
+import { domainToASCII } from "url";
 
-const key = Symbol("descriptor");
+const key = Symbol("descript");
 
 export function descriptor(description: string) {
   return Reflect.metadata(key, description)
@@ -27,3 +28,4 @@ export function printObj(obj: any) {
     }
   }
 }
+
