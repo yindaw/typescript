@@ -1,32 +1,11 @@
 import { type } from "os"
 
-interface User {
+class User {
   loginid: string
-  loginpwd: string
 }
 
-interface Artical {
-  title: string
-  publishDate: Date
-}
+class Artical {}
 
+type twoParamsConstructor = new (arg1: any, arg2: any) => Artical
 
-
-//将User的所有属性值类型变成字符串，得到一个新的类型
-type String<T> = {
-  [p in keyof T]: string
-}
-
-
-type Readonly<T> = {
-  readonly [p in keyof T]: T[p]
-}
-
-type Partial<T> = {
-  [p in keyof T]?: T[p]
-}
-
-const u:Readonly<User> = {
-  loginid: "sdsadsa",
-  loginpwd: "sdadas", 
-}
+type Inst = InstanceType<twoParamsConstructor>
