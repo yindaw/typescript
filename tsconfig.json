@@ -10,11 +10,10 @@
     "esModuleInterop": true,
     "noEmitOnError": true,
     "moduleResolution": "node",
-    // "strictPropertyInitialization": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
   },
   "include": ["./src"]
 }
